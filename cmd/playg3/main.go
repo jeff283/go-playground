@@ -12,6 +12,9 @@ func main() {
 	fmt.Println("\nMAPS")
 	mapAround()
 
+	fmt.Println("\nLOOPS")
+	goBrrr()
+
 	fmt.Println()
 }
 
@@ -83,4 +86,41 @@ func mapAround() {
 	}
 	fmt.Println()
 
+}
+
+func goBrrr() {
+	i := 0
+	fmt.Println("For Plain: ")
+	for i < 3 {
+		fmt.Printf("%v, ", i)
+		i = i + 1
+	}
+	fmt.Println()
+
+	fmt.Printf("i is global scoped: %v \n", i)
+
+	fmt.Println("For Trad: ")
+	for x := 0; x < 3; x++ {
+		fmt.Printf("%v, ", x)
+	}
+	fmt.Println()
+
+	fmt.Println("For Range: ")
+	for x := range 3 {
+		fmt.Printf("%v, ", x)
+	}
+	fmt.Println()
+
+	fmt.Println("For Break: ")
+	for {
+		if i >= 6 {
+			break
+		}
+		fmt.Printf("%v, ", i)
+		i++
+		// i--, i += 5 or -, 1 *= 2 or /
+
+	}
+
+	fmt.Println()
 }
