@@ -9,6 +9,9 @@ func main() {
 	fmt.Println("\nSLICES")
 	sliceAround()
 
+	fmt.Println("\nMAPS")
+	mapAround()
+
 	fmt.Println()
 }
 
@@ -22,6 +25,11 @@ func arraysAround() {
 
 	infArr := [...]int32{4, 3, 2, 1}
 	fmt.Println(infArr)
+
+	for i, v := range infArr {
+		fmt.Printf("Index %v and Value %v \n", i, v)
+	}
+	fmt.Println()
 
 }
 
@@ -39,4 +47,40 @@ func sliceAround() {
 	var madeSlice []int32 = make([]int32, 3, 6)
 	fmt.Printf("Made: The len of the slice is %v and the capacity is %v\n", len(madeSlice), cap(madeSlice))
 	fmt.Println(madeSlice)
+}
+
+func mapAround() {
+
+	var basicMap map[string]uint8 = make(map[string]uint8, 10) //or map[string]uint8{}
+	fmt.Println(basicMap)
+
+	var initMap map[string]uint8 = map[string]uint8{"Jan": 1, "Feb": 2, "Mar": 3}
+	fmt.Println(initMap)
+	fmt.Println(initMap["Mar"])
+
+	// Maps always return even if the key does not exist
+	// It will return the defualt value of the data type for example in this case `unit8` default is 0
+	fmt.Println(initMap["Apr"])
+	fmt.Println()
+
+	// Handling emptys
+	month, ok := initMap["Jan"]
+	if ok {
+		fmt.Printf("Month index is %v and OK\n", month)
+	} else {
+		fmt.Printf("Apr is %v and is okay? %v\n", month, ok)
+	}
+	fmt.Println()
+
+	// Deleting
+	delete(initMap, "Jan")
+	fmt.Println(initMap)
+	fmt.Println()
+
+	// Looping
+	for month, index := range initMap {
+		fmt.Printf("%v is month number %v \n", month, index)
+	}
+	fmt.Println()
+
 }
