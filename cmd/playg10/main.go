@@ -17,6 +17,10 @@ func main() {
 	fmt.Println("String Slice Length: ", genericsAnyLen(sliceStrings))
 	fmt.Println()
 
+	one := Numbers[int]{name: "One"}
+	fmt.Println("A mix: ", one)
+	fmt.Println()
+
 }
 
 func genericsSums[T int | float32](numbers []T) T {
@@ -32,4 +36,8 @@ func genericsSums[T int | float32](numbers []T) T {
 
 func genericsAnyLen[T any](slices []T) int {
 	return len(slices)
+}
+
+type Numbers[T int | float32] struct {
+	name string
 }
